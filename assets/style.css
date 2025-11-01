@@ -1,0 +1,193 @@
+/* ===== FuturePath College Consulting v3 ===== */
+:root {
+  --bg: #fdfdfd;
+  --text: #111827;
+  --accent: #6366f1;   /* Indigo */
+  --accent2: #8b5cf6;  /* Violet */
+  --gray: #6b7280;
+  --card-bg: #ffffff;
+  --shadow: 0 4px 20px rgba(0,0,0,0.05);
+  --hover-bg: rgba(99,102,241,0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* --- Navbar --- */
+header {
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: saturate(180%) blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 10px rgba(0,0,0,0.05);
+}
+
+nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.2rem;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.3rem;
+  background: linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+nav div a {
+  text-decoration: none;
+  color: var(--text);
+  margin-left: 1rem;
+  font-weight: 500;
+  padding: .6rem 1rem;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+}
+
+/* Hover effect with subtle background */
+nav div a:hover {
+  background: var(--hover-bg);
+  color: var(--accent);
+}
+
+/* Active page highlight */
+nav div a.active {
+  background: linear-gradient(90deg,var(--accent),var(--accent2));
+  color: white;
+  box-shadow: 0 3px 10px rgba(99,102,241,0.2);
+}
+
+/* --- Hero --- */
+.hero {
+  padding: 6rem 1rem 5rem;
+  text-align: center;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: white;
+}
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+.hero p {
+  max-width: 650px;
+  margin: 0 auto;
+  font-size: 1.15rem;
+  opacity: 0.95;
+}
+
+/* --- Sections --- */
+section {
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--accent);
+}
+
+/* --- Cards --- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+}
+.card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(99,102,241,0.15);
+}
+.card h3 {
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+.card p {
+  color: var(--gray);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-block;
+  background: linear-gradient(90deg,var(--accent),var(--accent2));
+  color: white;
+  padding: .9rem 1.4rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: .3px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(99,102,241,0.3);
+}
+
+/* --- Forms --- */
+form {
+  background: var(--card-bg);
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  max-width: 600px;
+  margin: 0 auto;
+}
+form label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: .3rem;
+}
+form input, form textarea {
+  width: 100%;
+  padding: .9rem;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+form input:focus, form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.2);
+}
+
+/* --- Footer --- */
+footer {
+  background: #f8fafc;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: .9rem;
+  color: var(--gray);
+  border-top: 1px solid #e5e7eb;
+  margin-top: 4rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 640px) {
+  .hero h1 { font-size: 2.1rem; }
+  nav div a { margin-left: .5rem; padding: .5rem .8rem; }
+}
