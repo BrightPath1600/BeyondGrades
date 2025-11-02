@@ -116,7 +116,9 @@
 </section>
 
 <section>
-  <form action="https://formspree.io/f/your_form_id" method="POST">
+  <form action="https://formspree.io/f/xblppvnp" method="POST">
+    <input type="hidden" name="_next" value="https://brightpath1600.github.io/thankyou.html">
+
     <label>Name
       <input type="text" name="name" required>
     </label>
@@ -126,12 +128,47 @@
     <label>Message
       <textarea name="message" rows="5" required></textarea>
     </label>
-    <button type="submit" class="btn">Send Message</button>
+    <button type="submit" class="btn" id="submitBtn">Send Message</button>
   </form>
-  <p style="font-size:.9rem;text-align:center;margin-top:1rem;color:#94a3b8;">
-   
-  </p>
+
+  <p style="font-size:.9rem;text-align:center;margin-top:1rem;color:#94a3b8;"></p>
+
+  
+  <script>
+    const form = document.querySelector("form");
+    const submitBtn = document.getElementById("submitBtn");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending..."; 
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          alert("✅ Thank you! Your message has been sent successfully.");
+          form.reset();
+          window.location.href = "https://brightpath1600.github.io/thankyou.html";
+        } else {
+          alert("⚠️ Something went wrong. Please try again later.");
+        }
+      } catch (error) {
+        alert("⚠️ Network error. Please check your connection.");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send Message";
+      }
+    });
+  </script>
 </section>
+
 
 <footer>
   <p>© 2025 FuturePath College Consulting. All rights reserved.</p>
